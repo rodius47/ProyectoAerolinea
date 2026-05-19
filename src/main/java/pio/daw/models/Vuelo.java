@@ -2,14 +2,24 @@ package pio.daw.models;
 
 import java.util.Date;
 
-public class Vuelo {
+import jakarta.persistence.Entity;
+import jakarta.persistence.ManyToOne;
 
-    private int numero;
+@Entity
+public class Vuelo {
+    // @Id
+    // @GeneratedValue
+    // private Long id; -> CREO QUE NO HACE FALTA. usar NUMERO como ID
+
+    private int numero; //--> numero de vuelo
     private String origen;
     private String destino;
     private Date fechaSalida;
     private double duracionMin;
     private int plazas;
+
+    @ManyToOne
+    private Aerolinea aerolinea;
     
     public Vuelo(int numero, String origen, String destino, Date fechaSalida, double duracionMin, int plazas) {
         this.numero = numero;
