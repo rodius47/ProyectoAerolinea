@@ -4,6 +4,8 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
+import org.springframework.format.annotation.DateTimeFormat;
+
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
 import jakarta.persistence.OneToMany;
@@ -19,6 +21,7 @@ public class Aerolinea {
     private String nombre;
     private String pais;
     private String IATA; //viene a ser el id de los aviones (segun lo que he leido: estan compuestos por 3 ó 2 letras(solo letras, y en mallusculas) )
+    @DateTimeFormat(pattern = "dd-MM-yyyy")
     private Date fundacion;// hay que ponerlo que tenga una forma especifica de escrivirlo, en el proyecto del RA8 tubimos que hacerlo
 
     @OneToMany(mappedBy = "aerolinea", cascade = CascadeType.ALL)

@@ -25,12 +25,12 @@ public class ServicioGeneral {
         return repoVuelo.searchByPlazas(plazas);
     }
 
-    public List<Aerolinea> filtrarPorOrigen(String origen){
-        return repoAero.searchByOrigin(origen);
+    public List<Vuelo> filtrarPorOrigen(String origen){
+        return repoVuelo.searchByOrigin(origen);
     }
 
-    public List<Aerolinea> filtrarPorDestiny(String destino){
-        return repoAero.searchByDestiny(destino);
+    public List<Vuelo> filtrarPorDestiny(String destino){
+        return repoVuelo.searchByDestiny(destino);
     }
 
     public List<Aerolinea> calcularMediaVueloPorAerolinea(double duracionMin, String NombreAerolinea){
