@@ -4,11 +4,11 @@ services:
     restart: always
     environment:
       MYSQL_ROOT_PASSWORD: admin
-      MYSQL_DATABASE: personabd
+      MYSQL_DATABASE: proyectoaerolineabd
       MYSQL_USER: user
       MYSQL_PASSWORD: user
     ports:
-      - "13306:3036"
+      - "13307:3307"
     volumes:
       - mysql_data:/var/lib/mysql
 
