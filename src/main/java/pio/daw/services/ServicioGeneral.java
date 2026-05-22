@@ -4,6 +4,7 @@ import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -21,7 +22,7 @@ public class ServicioGeneral {
     @Autowired
     private AerolineaRepository repoAero;
 
-    public List<Aerolinea> buscarPersonas(String name, String pais, String IATA, Date fundacion) {
+    public List<Aerolinea> buscarAerolineas(String name, String pais, String IATA, Date fundacion) {
         boolean hasNombre = name != null;
         boolean hasPais = pais != null;
         boolean hasIATA = IATA != null;
@@ -78,6 +79,15 @@ public class ServicioGeneral {
 
     public List<Aerolinea> calcularMediaVueloPorAerolinea(double duracionMin, String NombreAerolinea){
         return repoAero.calculateFligtMedPerAerolinea(duracionMin, NombreAerolinea);
+    }
+
+    public Optional<String> borrarAerolinea(String nombre) {
+        Optional<Aerolinea> a = repoAero.findFirstByName(nombre);
+        if (a.isPresent()) {
+            repoAero.delete(a.get());
+            return Optional.of(a.get().getIATA());
+        }
+        return Optional.empty();
     }
 
 

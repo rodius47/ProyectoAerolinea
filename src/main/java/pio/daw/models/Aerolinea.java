@@ -8,12 +8,15 @@ import org.springframework.format.annotation.DateTimeFormat;
 
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
 import jakarta.persistence.OneToMany;
 
 @Entity
 public class Aerolinea {
-    // @Id 
-    // @GeneratedValue
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
 
     // private Long id; -> CREO QUE NO HACE FALTA. usar NOMBRE como ID
 
@@ -69,6 +72,11 @@ public class Aerolinea {
     public String getNombre() {
         throw new UnsupportedOperationException("Not supported yet.");
     }
+
+    // public static @Nullable Object values() {
+    //     // TODO Auto-generated method stub
+    //     throw new UnsupportedOperationException("Unimplemented method 'values'");
+    // }
 
 
 
