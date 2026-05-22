@@ -34,7 +34,7 @@ public class Aerolinea {
         this.fundacion = fundacion;
     }
 
-    public String getNombre() {
+    public String getName() {
         return nombre;
     }
 
@@ -65,6 +65,11 @@ public class Aerolinea {
     public void setFundacion(Date fundacion) {
         this.fundacion = fundacion;
     }
+
+    public String getNombre() {
+        throw new UnsupportedOperationException("Not supported yet.");
+    }
+
 
 
 }
